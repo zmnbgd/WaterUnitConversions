@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationStack {
+            Form {
+                Section("Choose a water measurement unit") {
+                    
+                }
+                
+                Section {
+                    
+                }
+                
+                Section("Choose a water measurement unit") {
+                    
+                }
+                
+                Section {
+                    
+                }
+            }
+            .navigationTitle("Water Unit Conversions")
         }
-        .padding()
     }
 }
 
