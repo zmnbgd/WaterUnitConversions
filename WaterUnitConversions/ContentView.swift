@@ -48,11 +48,6 @@ struct ContentView: View {
         
         NavigationStack {
             Form {
-                Section("Water input amount") {
-                    TextField("Enter amount", value: $inputAmount, format: .number)
-                        .keyboardType(.decimalPad)
-                }
-                
                 Section("Choose Input Unit") {
                     Picker("Input Unit", selection: $inputUnit) {
                         ForEach(units, id: \.self) {
@@ -62,12 +57,22 @@ struct ContentView: View {
                     .pickerStyle(.navigationLink)
                 }
                 
+                Section("Water input amount") {
+                    TextField("Enter amount", value: $inputAmount, format: .number)
+                        .keyboardType(.decimalPad)
+                }
+                                
                 Section("Choose a water measurement unit") {
-                    
+                    Picker("Output unit", selection: $outputUnit) {
+                        ForEach(units, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
                 }
                 
-                Section {
-                    
+                Section("converted amount") {
+                    Text("\(convertedAmount, specifier: "%.2f") \(outputUnit)")
                 }
             }
             .navigationTitle("Water Conversions")
